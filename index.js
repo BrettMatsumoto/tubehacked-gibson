@@ -9,7 +9,7 @@ const Secret = require('./services/secret-service')();
 const SockPuppet = require('./services/socket-service')();
 
 App.use(Express.static('public'));
-App.use(BodyParser.urlencoded({extended: true}));
+App.use(BodyParser.json({extended: true}));
 
 IO.on('connection', socket => {
   SockPuppet.init(socket);
